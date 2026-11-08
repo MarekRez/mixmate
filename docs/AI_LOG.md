@@ -209,3 +209,32 @@ Each entry contains:
 **Output:** `agents/claude.md` - the Node note now says to check `npx -v` and records the broken `v24.19.0` folder.
 
 **Fix (done by the author, in an elevated terminal):** `nvm use 24.12.0`, `nvm uninstall 24.19.0`, `nvm install 24.19.0`, `nvm use 24.19.0`, then check `node -v`, `npm -v`, `npx -v`.
+
+---
+
+## 2026-11-08 - Implementation step 2: dataset (feature 1.1, without images)
+
+**Tool:** Claude Code (Claude Sonnet 5.5), VS Code extension
+
+**Request:** Continue the implementation with the recipe and ingredient dataset. The author also allowed the AI to make git commits with its own commit messages.
+
+**Output:**
+- `src/assets/data/ingredients.json` - 33 ingredients in the 8 categories from DESIGN.md. Ice and water are staples.
+- `src/assets/data/cocktails.json` - 32 cocktails (shake, stir, build and blend) with amounts, units and numbered steps.
+- `src/app/core/data/dataset.spec.ts` - 14 tests that validate the two JSON files.
+- `tsconfig.json` - `resolveJsonModule`, so the JSON can be imported by the app and by tests.
+- `DESIGN.md` - the example recipe now matches the real dataset (`orange` instead of `orange-peel`).
+
+**Verification:**
+- The test was written first and failed because the JSON files did not exist.
+- After the data was added, all 24 tests pass, and `ng build` and `ng lint` pass.
+- Mutation check: a deliberately wrong ingredient id and a wrong cocktail id made 3 tests fail, and the messages name the broken recipe. The data was then restored (the file was identical to the backup).
+
+**Decisions:**
+- Ingredient rules from SPEC are applied: lime, lemon, orange and grapefruit also cover their juice (the display name says "or lime juice"). Pineapple and cranberry juice are separate ingredients, because nobody squeezes them fresh. Vermouths and sparkling wine are in the category "other".
+- 32 cocktails, mainly from the IBA list. Gin and Tonic is a classic added for beginners, and to the AI's knowledge it is not on the IBA list.
+- No cocktail sets `preparationTimeSeconds`, so the defaults from DESIGN.md apply (shake 15 s, stir 30 s).
+
+**Not done / for the author to check:**
+- Feature 1.1 is not complete. The cocktail images and `docs/DATA_SOURCES.md` are still missing. `image` paths already point to `assets/images/cocktails/<id>.jpg`, and the files will be added in the next step.
+- The recipes were written from the AI's knowledge of the IBA recipes. They were not compared with the official IBA website. Please spot-check a few of them before the presentation.

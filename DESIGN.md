@@ -174,13 +174,13 @@ interface UserState {
       { "ingredientId": "campari", "amount": 30, "unit": "ml" },
       { "ingredientId": "sweet-vermouth", "amount": 30, "unit": "ml" },
       { "ingredientId": "ice", "unit": "as needed" },
-      { "ingredientId": "orange-peel", "amount": 1, "unit": "piece", "optional": true }
+      { "ingredientId": "orange", "amount": 1, "unit": "slice", "optional": true }
     ],
     "instructions": [
       "Pour gin, Campari and vermouth into a mixing glass with ice.",
       "Stir until well chilled.",
       "Strain into an old-fashioned glass over fresh ice.",
-      "Garnish with orange peel."
+      "Garnish with an orange slice."
     ]
   }
 ]
@@ -211,7 +211,7 @@ For each cocktail:
    - 1 missing → `missing-one` (Discover, "Missing one ingredient")
    - 2 or more missing → `missing-many` (only in the full catalogue)
 
-Example: the user has gin and Campari. The Negroni needs gin, Campari and sweet vermouth (ice is a staple, and the orange peel is optional), so the result is `missing-one` with sweet vermouth missing.
+Example: the user has gin and Campari. The Negroni needs gin, Campari and sweet vermouth (ice is a staple, and the orange slice is optional), so the result is `missing-one` with sweet vermouth missing.
 
 The matching is a pure function with no Angular or Capacitor dependencies, so it can be unit-tested directly. It is calculated in one place only (see `CocktailMatcherService`), and screens never repeat it.
 
