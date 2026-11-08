@@ -60,16 +60,16 @@ Use:
 - SCSS
 - Capacitor
 
-The application must support both:
+Development happens on Windows. There is no Mac.
 
-- Android
-- iOS
+The application is delivered in two forms from the same code:
 
-Development will primarily happen on Windows.
+- **Android:** a native app built with Capacitor and Android Studio, installed as an APK on a phone with Android 7.0 or newer, or run in the emulator.
+- **iPhone:** an installable web app (PWA) using the Angular service worker, served over HTTPS from static hosting and added to the home screen from Safari.
 
-Android can be tested locally using Android Studio.
+A native iOS build is out of scope, because it needs a Mac and a paid Apple Developer account.
 
-iOS builds will later be produced using macOS/Xcode or a cloud macOS build environment.
+Every feature must therefore also work in the browser through the Capacitor web implementations. Where a native capability is missing on the web, the app must degrade gracefully and must not crash. For example, there is no vibration on iPhone, so the timer end is shown on screen.
 
 Do not introduce another frontend framework.
 

@@ -133,3 +133,38 @@ Each entry contains:
   - tabs plus a detail route outside the tabs,
   - JSON bundled with the app and loaded once at startup,
   - photo file name `<cocktail-id>-<timestamp>.jpeg`, so a cached old image is not shown.
+
+---
+
+## 2026-11-08 - Answering the open questions in SPEC.md
+
+**Tool:** Claude Code (Claude Opus 5.5), VS Code extension
+
+**Request:** The author answered the three open questions:
+- Ingredient granularity: keep it simple.
+- Images: keep it simple, take them from the web.
+- iOS: the author has an iPhone, no Mac, and their previous Android phone (reasonably new, no longer in use). They would like to run the app on the iPhone somehow. The teacher has no platform requirement.
+
+**Output:**
+- `SPEC.md`:
+  - the three answers moved to "Decided questions", and "Open questions" is now empty,
+  - the platform constraint changed to a native Android app plus an iPhone PWA,
+  - new "out of scope" row: native iOS app and store publishing,
+  - images downloaded from the web with the source URL recorded (no licence checks),
+  - acceptance criteria for 1.1, 5.2 and 7.2 updated.
+- `DESIGN.md`:
+  - new section 11 "Platforms and delivery" (Android APK, iPhone PWA on static hosting),
+  - plugin table shows the web/PWA behaviour of each plugin,
+  - photo display differs per platform,
+  - ingredient and image rules in the dataset,
+  - manual PWA tests,
+  - sections 11-12 renumbered to 12-13.
+- `agents/claude.md` - the technology stack describes the two delivery forms. Every feature must also work in the browser.
+
+**Decisions:**
+- Ingredients: a fresh fruit also covers its juice, and varieties of one spirit are one ingredient (rum, whiskey). Sweet and dry vermouth stay separate. There are no substitutes and no hierarchy.
+- Images: downloaded from the web and shipped with the app (offline), with the source URL recorded. Licences are not checked, because the app is not published.
+- iPhone gets a PWA, because a native iOS build needs a Mac and a paid Apple Developer account. Cloud macOS builds and sideloading tools were not chosen, because they are too complex for this project.
+- The PWA cannot vibrate (iOS does not allow vibration from web apps), so the timer end is shown on screen. Haptics works in the Android app.
+- Capacitor 8 needs Android 7.0 (API 24) or newer, as checked in the Capacitor Android template.
+- New dependency planned: `@angular/pwa` (official Angular package).

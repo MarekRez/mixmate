@@ -55,7 +55,7 @@ Priority: **Must** = required for version 1, **Should** = important, but version
 
 ### 5. Preparation timer
 - **5.1** The user can start a timer for shaking or stirring a drink. *(Must)*
-- **5.2** The phone vibrates when the timer ends. *(Must)*
+- **5.2** The phone vibrates when the timer ends. On iPhone the end is only shown on screen, see [Constraints](#constraints). *(Must)*
 
 ### 6. Favourites
 - **6.1** The user can mark a cocktail as a favourite and unmark it again. *(Must)*
@@ -69,12 +69,14 @@ Priority: **Must** = required for version 1, **Should** = important, but version
 
 ## Constraints
 
-- **Platform:** mobile app for Android and iOS. Android is tested on an emulator or a physical device. An iOS build needs macOS/Xcode or a cloud build service.
-- **Technology:** Ionic, Angular 22, TypeScript, SCSS and Capacitor (Camera, Haptics, Preferences, Filesystem).
+- **Platforms:** the same code is delivered in two forms. Development happens on Windows, and no Mac is available.
+  - **Android:** a native app (APK), installed on a phone with Android 7.0 or newer, or run in the Android emulator. All features work.
+  - **iPhone:** an installable web app (PWA), opened from a web link in Safari and added to the home screen. It works offline. iOS does not let web apps vibrate, so the timer end is only shown on screen. All other features work.
+- **Technology:** Ionic, Angular 22, TypeScript, SCSS, Capacitor (Camera, Haptics, Preferences, Filesystem) and the Angular service worker for the PWA.
 - **Language:** the UI and all cocktail and ingredient names are in English.
 - **Offline:** the app works without an internet connection and without an account.
 - **Data:** there is no backend and no database server. Recipes and ingredients are local JSON files shipped with the app. User data is stored only on the device.
-- **Dataset:** at least 30 cocktails, mainly from the IBA (International Bartenders Association) official cocktails list. Every cocktail image must have a licence that allows its use. The source and licence of each image are recorded in `docs/DATA_SOURCES.md`.
+- **Dataset:** at least 30 cocktails, mainly from the IBA (International Bartenders Association) official cocktails list. The cocktail images are downloaded from the web and shipped with the app, so they work offline. The source URL of each image is recorded in `docs/DATA_SOURCES.md`.
 - **Units:** amounts are in millilitres. Small or inexact amounts use units such as dash, piece or top up.
 - **Deadline:** the final project presentation at the end of the winter semester 2026/27.
 
@@ -96,6 +98,7 @@ The following are intentionally not part of version 1:
 | Push notifications | There is nothing to notify about outside the app. |
 | Shake detection with the accelerometer | It may be tried later as an experiment. |
 | Timer running in the background or with the screen locked | The timer is short (15-30 s), so the user keeps the app open. |
+| Native iOS app, publishing in Google Play or the App Store | A native iOS build needs a Mac and a paid Apple Developer account. iPhone users get the web app, and Android users install the APK directly. Because the app is not published, image licences are not checked. |
 
 ---
 
@@ -111,14 +114,15 @@ The following are intentionally not part of version 1:
 | How long is the timer? | The duration from the recipe. If the recipe sets none: shake 15 s, stir 30 s. Build and blend have no timer. |
 | Does the timer run when the app is in the background? | No. It only runs while the app is open. |
 | UI language? | English. |
+| How detailed are the ingredients? | Kept simple. An ingredient is something the user buys. A fresh fruit also covers its juice (a lime covers lime juice). Varieties of one spirit count as one ingredient (white and dark rum are both "rum", bourbon and scotch are both "whiskey"), although a recipe step may recommend a variety. Sweet and dry vermouth stay separate, because they are different products. There are no substitutes and no ingredient hierarchy. |
+| Where do the cocktail images come from? | They are downloaded from the web and shipped with the app. The source URL of each image is recorded. |
+| Is iOS needed? | The author uses an iPhone but has no Mac. The iPhone gets the web app (PWA). The native Android app runs on the author's previous Android phone, which is no longer in daily use, or in the emulator. The teacher has no platform requirement. |
 
 ---
 
 ## Open questions
 
-1. **Ingredient granularity.** Does "lime" also cover "lime juice"? Is "rum" one ingredient, or are "white rum" and "dark rum" separate? This affects the dataset and the matching results. *Proposal:* one ingredient for each item the user actually buys (a lime covers lime juice), and separate ingredients where the taste clearly differs (white rum and dark rum).
-2. **Image source.** Where will the cocktail images come from? Options include Wikimedia Commons images with attribution, the team's own photos, or simple illustrations.
-3. **iOS.** Is an iOS build required for the final presentation, or is Android enough?
+None at the moment.
 
 ---
 
@@ -139,7 +143,8 @@ These criteria are the test plan. A feature is done when all its criteria are me
 **1.1 Well-known cocktails**
 - `cocktails.json` contains at least 30 cocktails. Each has a name, an image, a method, ingredients with amounts and numbered steps.
 - Every ingredient used in a recipe exists in `ingredients.json` and has a category. An automated test checks this.
-- The source and licence of every cocktail image are recorded in `docs/DATA_SOURCES.md`.
+- The source URL of every cocktail image is recorded in `docs/DATA_SOURCES.md`.
+- The ingredients follow the rules in [Decided questions](#decided-questions) (one ingredient per spirit, a fruit covers its juice).
 
 **1.2 Staples**
 - Ice and water are marked as staples in the dataset.
@@ -207,8 +212,8 @@ These criteria are the test plan. A feature is done when all its criteria are me
 - The remaining time is visible. The timer can be cancelled and restarted.
 
 **5.2 Vibration**
-- The phone gives haptic feedback when the timer reaches zero. This is checked manually on a device or an emulator.
-- The end is also shown on screen.
+- In the Android app, the phone gives haptic feedback when the timer reaches zero. This is checked manually on a device or an emulator.
+- On every platform, including the iPhone web app, the end is also shown on screen.
 
 ### 6. Favourites
 
@@ -228,5 +233,5 @@ These criteria are the test plan. A feature is done when all its criteria are me
 - If the camera permission is denied or the user cancels, the app shows a message or nothing changes, and the app keeps working.
 
 **7.2 Keep photos**
-- Photos are still shown after the app is restarted.
+- Photos are still shown after the app is restarted, both in the Android app and in the iPhone web app.
 - Photos are stored only on the device.
