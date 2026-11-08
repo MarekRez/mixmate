@@ -62,6 +62,10 @@ Use:
 
 Development happens on Windows. There is no Mac.
 
+Angular CLI 22 requires Node.js 24.15 or newer (or 22.22.3+). Node is managed with nvm-windows. The active version must be a complete install: check that `node -v`, `npm -v` and `npx -v` all work. The MCP servers (`angular-cli`, `chrome-devtools-mcp`) are started through `npx`, so they fail with "Connection closed" when `npx` is missing or `ng` refuses an old Node.
+
+Known problem on the author's machine: the nvm folder `v24.19.0` contains only `node.exe` (no npm or npx), so `nvm use 24.19.0` breaks `npx`. Until it is reinstalled, do not switch to it.
+
 The application is delivered in two forms from the same code:
 
 - **Android:** a native app built with Capacitor and Android Studio, installed as an APK on a phone with Android 7.0 or newer, or run in the emulator.

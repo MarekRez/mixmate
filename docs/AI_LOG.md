@@ -168,3 +168,44 @@ Each entry contains:
 - The PWA cannot vibrate (iOS does not allow vibration from web apps), so the timer end is shown on screen. Haptics works in the Android app.
 - Capacitor 8 needs Android 7.0 (API 24) or newer, as checked in the Capacitor Android template.
 - New dependency planned: `@angular/pwa` (official Angular package).
+
+---
+
+## 2026-11-08 - Implementation step 1: matching logic (features 1.2, 3.1, 3.2)
+
+**Tool:** Claude Code (Claude Sonnet 5.5), VS Code extension
+
+**Request:** Start the implementation (this is the "agent implements" step after the author approved `SPEC.md` and `DESIGN.md`). The author also asked whether the Angular MCP server would help and why it does not connect.
+
+**Output:**
+- `src/app/core/models/` - `ingredient.ts`, `cocktail.ts`, `cocktail-match.ts` (the types from DESIGN.md, section 5).
+- `src/app/core/services/cocktail-matcher.spec.ts` - 8 tests, written first (test-driven development).
+- `src/app/core/services/cocktail-matcher.ts` - pure function `matchCocktail(cocktail, availableIds, stapleIds)`.
+- `agents/claude.md` - note about the required Node.js version.
+
+**Verification:**
+- Test written first failed because the module did not exist, then passed after the implementation: 10 of 10 tests pass (8 new, 2 existing).
+- `ng build` and `ng lint` pass.
+
+**Decisions:**
+- The matching is a plain exported function, not a class. The Angular service `CocktailMatcherService` (DESIGN.md, section 8) comes later, when the services it depends on exist. It will only call this function.
+- The function takes the staple IDs as a parameter, so it stays independent of `IngredientService`.
+
+**Problem found:** `ng test` did not start with Node v24.12.0, because Angular CLI 22 needs Node 24.15 or newer. The same error is why the `angular-cli` MCP server shows "Failed". Node 24.19.0 is already installed through nvm. It was used only for the commands in this session, and the global Node version was not changed.
+
+---
+
+## 2026-11-08 - Follow-up: MCP servers stopped working after `nvm use`
+
+**Tool:** Claude Code (Claude Sonnet 5.5), VS Code extension
+
+**Request:** After the previous step the author switched Node with `nvm use 24.19.0` (as the AI had advised), and now no MCP server connects.
+
+**Findings:**
+- The nvm folder `v24.19.0` is an incomplete install. It contains only `node.exe`, with no `npm`, `npx` or `node_modules`. After the switch, `npx` no longer exists. Both `npx`-based servers (`angular-cli`, `chrome-devtools-mcp`) therefore close immediately.
+- The AI's mistake: it advised `nvm use 24.19.0` without checking that the install was complete. Its earlier test runs worked only because they combined the `node.exe` of 24.19.0 with the `npx` of 24.12.0 through `PATH`.
+- `chrome-devtools-mcp` also needs Chrome running with a debugging port (`--browser-url=http://127.0.0.1:9222`). Nothing listens on that port now. This may be a second reason for its failure, which could only be checked after `npx` works again.
+
+**Output:** `agents/claude.md` - the Node note now says to check `npx -v` and records the broken `v24.19.0` folder.
+
+**Fix (done by the author, in an elevated terminal):** `nvm use 24.12.0`, `nvm uninstall 24.19.0`, `nvm install 24.19.0`, `nvm use 24.19.0`, then check `node -v`, `npm -v`, `npx -v`.
