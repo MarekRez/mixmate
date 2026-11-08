@@ -87,3 +87,49 @@ Each entry contains:
 - Keep `blend` and add it to `project.md`.
 - `appId` `sk.mixmate.app` (chosen by the AI; change it before `npx cap add android` if you prefer another one).
 - Default timer: shake 15 s, stir 30 s, no timer for build/blend unless the recipe sets one.
+
+---
+
+## 2026-11-08 - SPEC.md and DESIGN.md in the course format
+
+**Tool:** Claude Code (Claude Opus 5.5), VS Code extension
+
+**Request:** Following the teacher's instructions, create a requirements specification (`SPEC.md`) and a design document (`DESIGN.md`). The specification follows the structure from the lecture: problem, users and roles, features (numbered, one sentence each, from the user's point of view), constraints, out of scope, open questions. The design document covers the data model, the API and the structure, with no implementation yet.
+
+**Output:**
+- `SPEC.md` (new, project root) - replaces `docs/project.md`:
+  - problem, users and roles,
+  - 19 features numbered 1.1-7.2 with MoSCoW priority,
+  - constraints and out of scope with reasons,
+  - decided and open questions,
+  - success criterion,
+  - acceptance criteria for each feature (the test plan).
+- `DESIGN.md` (moved from `docs/` to the project root and rewritten):
+  - routes and screens mapped to SPEC features,
+  - data model including `CocktailMatch` and example JSON,
+  - matching logic with an example,
+  - project structure,
+  - service interface table (the internal API),
+  - Preferences keys and photo file naming,
+  - plugins to install,
+  - edge cases,
+  - test plan mapped to features.
+- `docs/project.md` - deleted. Its content now lives in `SPEC.md` and remains in the git history.
+- `docs/BACKLOG.md` - acceptance criteria moved to `SPEC.md`. The stories link to SPEC by number, and the epics table lists the SPEC features.
+- `agents/claude.md` - points to `SPEC.md` and `DESIGN.md`, and adds the course workflow (the human owns SPEC and approves the design; the agent implements one feature at a time).
+
+**Decisions:**
+- Feature numbers in SPEC match the user story numbers in the backlog (feature 3.2 = US-3.2), so the acceptance criteria are written only once, in SPEC.
+- `SPEC.md` and `DESIGN.md` are in the project root, as on the lecture slide. `BACKLOG.md` and `AI_LOG.md` stay in `docs/`.
+- New decisions recorded in SPEC "Decided questions":
+  - the staples are ice and water only,
+  - the user's photo is shown only in the detail,
+  - amounts are in ml.
+- Open questions left for the author:
+  - ingredient granularity (lime vs lime juice),
+  - the image source,
+  - whether iOS is needed for the final presentation.
+- Design choices proposed by the AI (for the author to approve):
+  - tabs plus a detail route outside the tabs,
+  - JSON bundled with the app and loaded once at startup,
+  - photo file name `<cocktail-id>-<timestamp>.jpeg`, so a cached old image is not shown.

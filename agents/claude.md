@@ -6,11 +6,25 @@ MixMate is a small cross-platform mobile application for discovering cocktails b
 
 Read the following files before making architectural or feature decisions:
 
-- `docs/project.md`
-- `docs/DESIGN.md`
-- `docs/BACKLOG.md`
+- `SPEC.md` - requirements: features, constraints, out of scope, decided and open questions, acceptance criteria
+- `DESIGN.md` - data model, services (internal API), project structure, persistence
+- `docs/BACKLOG.md` - initiative, epics and user stories (story US-x.y = SPEC feature x.y)
 
-These documents define the intended product scope, architecture and backlog (initiative, epics, user stories).
+If these documents disagree, `SPEC.md` wins.
+
+---
+
+## Workflow
+
+The course requires this workflow: the human decides, the agent writes.
+
+1. The author writes and owns `SPEC.md`. Do not change requirements, scope or acceptance criteria in `SPEC.md` without the author's explicit request.
+2. The agent proposes changes to `DESIGN.md` before implementing anything that the design does not cover yet.
+3. The author reads and approves the design.
+4. The agent implements one SPEC feature (or one user story) at a time, following `SPEC.md` and `DESIGN.md`. Not everything at once.
+5. The author verifies the result against the feature's acceptance criteria in `SPEC.md`.
+
+If an open question in `SPEC.md` blocks the implementation, ask the author instead of guessing.
 
 ---
 
@@ -148,7 +162,7 @@ Do not create excessive abstraction layers.
 
 ## Core MVP functionality
 
-Implement only functionality defined in `project.md`.
+Implement only functionality defined in `SPEC.md`.
 
 Primary flow:
 
