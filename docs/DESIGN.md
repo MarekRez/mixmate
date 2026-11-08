@@ -60,6 +60,7 @@ Behaviour:
 - Ingredients grouped into categories.
 - Toggle available/unavailable.
 - Search field for larger ingredient lists.
+- Staple ingredients (ice, water) are not listed. They are always treated as available.
 
 Suggested categories:
 - spirits,
@@ -108,6 +109,7 @@ interface Ingredient {
   id: string;
   name: string;
   category: IngredientCategory;
+  staple?: boolean; // ice, water - always available, never shown as missing
 }
 ```
 
@@ -116,8 +118,8 @@ interface Ingredient {
 ```ts
 interface RecipeIngredient {
   ingredientId: string;
-  amount: number;
-  unit: string;
+  amount?: number; // omitted for "top up", "to taste" or a garnish
+  unit: string;    // e.g. 'ml', 'dash', 'piece', 'top up'
   optional?: boolean;
 }
 ```
@@ -132,7 +134,7 @@ interface Cocktail {
   ingredients: RecipeIngredient[];
   instructions: string[];
   method: 'shake' | 'stir' | 'build' | 'blend';
-  preparationTimeSeconds?: number;
+  preparationTimeSeconds?: number; // if omitted: shake 15 s, stir 30 s, no timer for build/blend
 }
 ```
 
@@ -142,18 +144,27 @@ interface Cocktail {
 interface UserState {
   availableIngredientIds: string[];
   favouriteCocktailIds: string[];
+  cocktailPhotos: Record<string, string>; // cocktail ID -> photo file name in the app data directory
 }
 ```
 
-User photos can be stored separately and referenced by cocktail ID.
+Each cocktail has at most one user photo. A new photo replaces the previous one.
+
+### Dataset content
+
+- At least 30 well-known cocktails, based mainly on the IBA official cocktails list.
+- All names (cocktails, ingredients) are in English.
+- Every ingredient used in a recipe must exist in `ingredients.json`. This is checked by a unit test.
+- The source and licence of every cocktail image are recorded in `docs/DATA_SOURCES.md`.
 
 ## 6. Matching logic
 
 For each cocktail:
 
 1. Ignore optional ingredients when determining availability.
-2. Compare required ingredient IDs with the user's available ingredient IDs.
-3. Calculate the missing ingredient list.
+2. Treat staple ingredients as always available.
+3. Compare required ingredient IDs with the user's available ingredient IDs.
+4. Calculate the missing ingredient list.
 
 Classification:
 
@@ -202,7 +213,7 @@ Suggested services:
   - persists user state locally.
 
 - `CocktailMatcherService`
-  - determines which cocktails are available or almost available.
+  - determines which cocktails can be made and which are missing one ingredient.
 
 - `CameraService`
   - wraps Capacitor Camera API.
@@ -221,13 +232,14 @@ Static application data:
 User-specific data:
 - available ingredients,
 - favourites,
-- basic settings
+- references to cocktail photos.
 
-Store small values using Capacitor Preferences.
+Store these small values using Capacitor Preferences.
 
 Cocktail photos:
-- use Camera to capture/select image,
-- use Filesystem only if persistent file storage is required.
+- use Camera to take the photo,
+- copy it with Filesystem into the app data directory (`Directory.Data`). The Camera plugin only returns a temporary file, and storing images as base64 in Preferences is not suitable,
+- store only the file name in `UserState.cocktailPhotos`.
 
 ## 9. Native device integrations
 
@@ -238,7 +250,7 @@ Used for taking a photo of a prepared cocktail.
 Used when a preparation timer reaches zero.
 
 ### Local storage
-Used for ingredients, favourites and settings.
+Preferences is used for available ingredients, favourites and photo references. Filesystem is used for the photo files.
 
 ### Accelerometer
 Not part of MVP. It may later be used for experimental shake detection.

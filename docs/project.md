@@ -29,7 +29,7 @@ The minimum viable product will allow the user to:
    - Cocktail name and image.
    - Required ingredients and quantities.
    - Step-by-step preparation instructions.
-   - Preparation method such as shake, stir or build.
+   - Preparation method: shake, stir, build or blend.
 
 4. **Use a preparation timer**
    - Start a simple timer for actions such as shaking or stirring.
@@ -41,7 +41,7 @@ The minimum viable product will allow the user to:
 
 6. **Add a photo of a prepared cocktail**
    - Use the phone camera to take a photo.
-   - Store the photo locally with the cocktail.
+   - Store one photo per cocktail locally on the device. A new photo replaces the previous one.
 
 The application will work without requiring a user account or internet connection.
 
@@ -79,7 +79,7 @@ The application will use:
 
 - **Camera** - taking photos of prepared cocktails.
 - **Haptic feedback / vibration** - notifying the user when a preparation timer finishes.
-- **Local device storage** - storing available ingredients, favourites, settings and user photos.
+- **Local device storage** - storing available ingredients, favourites and user photos.
 
 Possible future use:
 - **Accelerometer** - detecting shaking motion during cocktail preparation.
@@ -88,19 +88,22 @@ Possible future use:
 
 ### Application
 - **Ionic**
-- **Angular 21 LTS**
+- **Angular 22**
 - **TypeScript**
 - **HTML / SCSS**
+- UI language: **English**
 
 ### Native mobile functionality
 - **Capacitor**
   - Camera
   - Haptics
   - Preferences / local storage
-  - Filesystem if needed for locally stored photos
+  - Filesystem - persistent storage of user photos (the Camera plugin only returns a temporary file)
 
 ### Data
-- Static local **JSON** file containing cocktail recipes and ingredients.
+- Static local **JSON** files containing cocktail recipes and ingredients.
+- Dataset of at least 30 well-known cocktails, based mainly on the IBA (International Bartenders Association) official cocktails list.
+- Cocktail images must have a licence that allows their use in this project. The source and licence of every image are recorded in `docs/DATA_SOURCES.md`.
 - Local device storage for user-specific state.
 - No backend or external database in the MVP.
 
@@ -139,4 +142,6 @@ The application will contain approximately these main screens:
 
 ## Success criterion
 
-The MVP is successful when a user can select ingredients they have at home and, within a few seconds, find at least one suitable cocktail recipe and follow the instructions to prepare it.
+The MVP is successful when at least 4 of 5 test users, starting from the first launch of the app, select the ingredients from a given list of about 8 and open a recipe for a cocktail they can make from them **in under 60 seconds**.
+
+The same task done with a normal web search is measured as the baseline. This criterion is also the target of the initiative in `docs/BACKLOG.md`.

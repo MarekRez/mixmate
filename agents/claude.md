@@ -6,10 +6,21 @@ MixMate is a small cross-platform mobile application for discovering cocktails b
 
 Read the following files before making architectural or feature decisions:
 
-- `project.md`
+- `docs/project.md`
 - `docs/DESIGN.md`
+- `docs/BACKLOG.md`
 
-These documents define the intended product scope and architecture.
+These documents define the intended product scope, architecture and backlog (initiative, epics, user stories).
+
+---
+
+## AI log
+
+This is a school project and AI usage must be documented.
+
+After every task done with AI assistance, add an entry to `docs/AI_LOG.md` in the format described at the top of that file: date, tool/model, request, output (files created or changed), findings/decisions.
+
+Keep entries short and factual. Do not rewrite or delete earlier entries.
 
 ---
 
@@ -30,7 +41,7 @@ Do not introduce additional infrastructure, frameworks, abstractions or dependen
 Use:
 
 - Ionic
-- Angular 21 LTS
+- Angular 22
 - TypeScript
 - SCSS
 - Capacitor
@@ -106,9 +117,11 @@ Examples:
 
 - available ingredients,
 - favourite cocktails,
-- basic settings.
+- references to user photos.
 
-Use an appropriate Capacitor/local persistence mechanism.
+Use Capacitor Preferences for these values and Capacitor Filesystem for the photo files.
+
+The UI language is English. All cocktail and ingredient names in the dataset are in English.
 
 ---
 
@@ -161,6 +174,7 @@ For every cocktail:
 
 - compare required ingredients with available ingredients,
 - ignore optional ingredients when determining whether the cocktail can be made,
+- treat staple ingredients (`staple: true`, e.g. ice, water) as always available,
 - calculate missing required ingredients.
 
 Classification:
@@ -170,7 +184,7 @@ Classification:
 → CAN MAKE
 
 1 missing ingredient
-→ ALMOST AVAILABLE
+→ MISSING ONE INGREDIENT
 
 2+ missing ingredients
 → only show in full catalogue
@@ -200,11 +214,11 @@ Used for:
 
 - selected ingredients,
 - favourites,
-- settings.
+- references to user photos.
 
 ### Filesystem
 
-Use only if required for persistent storage of user photos.
+Used to store user photos persistently, because the Camera plugin only returns a temporary file. Each cocktail has at most one photo. Do not store images as base64 in Preferences.
 
 ### Accelerometer
 
