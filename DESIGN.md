@@ -195,7 +195,7 @@ Dataset rules:
   - sweet and dry vermouth are separate,
   - there are no substitutes and no hierarchy.
 - Every `ingredientId` must exist in `ingredients.json`. A unit test checks this.
-- Images are downloaded from the web, resized to about 600 px wide, and saved as `assets/images/cocktails/<cocktail-id>.jpg`. The source URL of each image is recorded in `docs/DATA_SOURCES.md`.
+- Images are downloaded from the web (Wikipedia / Wikimedia Commons, as 600 px wide JPEG versions) and saved as `assets/images/cocktails/<cocktail-id>.jpg`. Each file must be a real JPEG of 5-500 KB, and no two cocktails share a file. The source URL of each image is recorded in `docs/DATA_SOURCES.md`. These rules are checked by `images.spec.ts`.
 
 ---
 

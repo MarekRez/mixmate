@@ -238,3 +238,38 @@ Each entry contains:
 **Not done / for the author to check:**
 - Feature 1.1 is not complete. The cocktail images and `docs/DATA_SOURCES.md` are still missing. `image` paths already point to `assets/images/cocktails/<id>.jpg`, and the files will be added in the next step.
 - The recipes were written from the AI's knowledge of the IBA recipes. They were not compared with the official IBA website. Please spot-check a few of them before the presentation.
+
+---
+
+## 2026-11-08 - Implementation step 3: cocktail images (completes feature 1.1)
+
+**Tool:** Claude Code (Claude Sonnet 5.5), VS Code extension
+
+**Request:** Finish feature 1.1 (the images and the recorded sources).
+
+**Output:**
+- `src/assets/images/cocktails/` - 32 JPEG images, one per cocktail (about 5.5 MB in total).
+- `docs/DATA_SOURCES.md` - for every image the Wikimedia Commons file page, the author and the licence, plus a note about the recipes.
+- `src/app/core/data/images.spec.ts` - 5 tests: the file exists, it is a real JPEG, its size is 5-500 KB, its source is recorded, and no two cocktails share a file.
+- `tsconfig.spec.json` - Node types for the test (`@types/node` was already installed, so no new dependency).
+- `DESIGN.md` - the image rules (size, format, uniqueness) are written down.
+
+**How:** a one-off script (kept outside the repository) took the lead image of the English Wikipedia article of each cocktail as a 600 px wide thumbnail and read its licence from Wikimedia Commons. The downloaded files were put in a separate temporary folder, and only files that passed the tests were copied into the project. The author's e-mail was not sent anywhere. The requests used a generic user agent.
+
+**Verification:**
+- The test was written first and failed (images and `DATA_SOURCES.md` missing).
+- After the images were added: 29 of 29 tests pass, and `ng build` and `ng lint` pass.
+- Mutation check: a fake "image" (an error page saved as a `.jpg`) failed two tests, and a duplicated image failed another one. The files were then restored (identical to the downloads).
+- The AI looked at all 32 images.
+
+**Decisions:**
+- 4 images from the articles were replaced with other Commons photos:
+  - Dark 'n' Stormy was 1.3 MB,
+  - Vodka Martini was the same file as Dry Martini,
+  - Gin Fizz was a blurred photo with a hand in it,
+  - Long Island Iced Tea was too dark.
+- The final Gin Fizz is a foamy fizz with mint, so it looks more like a Ramos Fizz than the IBA Gin Fizz. The Vodka Martini photo has a hand holding the glass. Both are acceptable for now and can be replaced later.
+- No image conversion tools exist on this machine (no Python, no ImageMagick). Only JPEG sources can be used, and the images are not resized further.
+- The images are CC BY, CC BY-SA, CC0 or public domain. The licences were recorded but not checked beyond that, because the app is not published (SPEC.md). Before publishing, the attribution must be shown in the app.
+
+**For the author to check:** the quality of the images in the app (some have a cluttered background, for example Screwdriver, Sea Breeze and White Russian). The photos with the weakest fit are listed under Decisions.
