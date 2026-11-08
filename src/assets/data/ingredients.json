@@ -1,0 +1,43 @@
+[
+  { "id": "gin", "name": "Gin", "category": "spirits" },
+  { "id": "vodka", "name": "Vodka", "category": "spirits" },
+  { "id": "rum", "name": "Rum", "category": "spirits" },
+  { "id": "whiskey", "name": "Whiskey", "category": "spirits" },
+  { "id": "tequila", "name": "Tequila", "category": "spirits" },
+  { "id": "brandy", "name": "Brandy (or cognac)", "category": "spirits" },
+  { "id": "cachaca", "name": "Cachaça", "category": "spirits" },
+
+  { "id": "campari", "name": "Campari", "category": "liqueurs" },
+  { "id": "aperol", "name": "Aperol", "category": "liqueurs" },
+  { "id": "orange-liqueur", "name": "Orange liqueur (triple sec)", "category": "liqueurs" },
+  { "id": "coffee-liqueur", "name": "Coffee liqueur", "category": "liqueurs" },
+
+  { "id": "cranberry-juice", "name": "Cranberry juice", "category": "juices" },
+  { "id": "pineapple-juice", "name": "Pineapple juice", "category": "juices" },
+
+  { "id": "simple-syrup", "name": "Simple syrup", "category": "syrups" },
+  { "id": "grenadine", "name": "Grenadine", "category": "syrups" },
+
+  { "id": "angostura-bitters", "name": "Angostura bitters", "category": "bitters" },
+
+  { "id": "lime", "name": "Lime (or lime juice)", "category": "fruit-and-herbs" },
+  { "id": "lemon", "name": "Lemon (or lemon juice)", "category": "fruit-and-herbs" },
+  { "id": "orange", "name": "Orange (or orange juice)", "category": "fruit-and-herbs" },
+  { "id": "grapefruit", "name": "Grapefruit (or grapefruit juice)", "category": "fruit-and-herbs" },
+  { "id": "mint", "name": "Fresh mint", "category": "fruit-and-herbs" },
+
+  { "id": "soda-water", "name": "Soda water", "category": "mixers" },
+  { "id": "tonic-water", "name": "Tonic water", "category": "mixers" },
+  { "id": "ginger-beer", "name": "Ginger beer", "category": "mixers" },
+  { "id": "cola", "name": "Cola", "category": "mixers" },
+
+  { "id": "sweet-vermouth", "name": "Sweet vermouth", "category": "other" },
+  { "id": "dry-vermouth", "name": "Dry vermouth", "category": "other" },
+  { "id": "sparkling-wine", "name": "Sparkling wine (prosecco, champagne)", "category": "other" },
+  { "id": "sugar", "name": "Sugar", "category": "other" },
+  { "id": "cream", "name": "Cream", "category": "other" },
+  { "id": "coconut-cream", "name": "Coconut cream", "category": "other" },
+  { "id": "espresso", "name": "Espresso", "category": "other" },
+  { "id": "ice", "name": "Ice", "category": "other", "staple": true },
+  { "id": "water", "name": "Water", "category": "other", "staple": true }
+]

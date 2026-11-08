@@ -1,0 +1,572 @@
+[
+  {
+    "id": "negroni",
+    "name": "Negroni",
+    "image": "assets/images/cocktails/negroni.jpg",
+    "method": "stir",
+    "ingredients": [
+      { "ingredientId": "gin", "amount": 30, "unit": "ml" },
+      { "ingredientId": "campari", "amount": 30, "unit": "ml" },
+      { "ingredientId": "sweet-vermouth", "amount": 30, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" },
+      { "ingredientId": "orange", "amount": 1, "unit": "slice", "optional": true }
+    ],
+    "instructions": [
+      "Pour the gin, Campari and sweet vermouth into a mixing glass filled with ice.",
+      "Stir for about 30 seconds, until well chilled.",
+      "Strain into an old-fashioned glass over fresh ice.",
+      "Garnish with an orange slice."
+    ]
+  },
+  {
+    "id": "old-fashioned",
+    "name": "Old Fashioned",
+    "image": "assets/images/cocktails/old-fashioned.jpg",
+    "method": "build",
+    "ingredients": [
+      { "ingredientId": "whiskey", "amount": 45, "unit": "ml" },
+      { "ingredientId": "angostura-bitters", "amount": 2, "unit": "dash" },
+      { "ingredientId": "sugar", "amount": 1, "unit": "piece" },
+      { "ingredientId": "water", "unit": "splash" },
+      { "ingredientId": "ice", "unit": "as needed" },
+      { "ingredientId": "orange", "amount": 1, "unit": "slice", "optional": true }
+    ],
+    "instructions": [
+      "Put the sugar cube in an old-fashioned glass and add the bitters and a splash of water.",
+      "Muddle until the sugar has dissolved.",
+      "Fill the glass with ice and add the whiskey.",
+      "Stir gently and garnish with an orange slice."
+    ]
+  },
+  {
+    "id": "manhattan",
+    "name": "Manhattan",
+    "image": "assets/images/cocktails/manhattan.jpg",
+    "method": "stir",
+    "ingredients": [
+      { "ingredientId": "whiskey", "amount": 50, "unit": "ml" },
+      { "ingredientId": "sweet-vermouth", "amount": 20, "unit": "ml" },
+      { "ingredientId": "angostura-bitters", "amount": 1, "unit": "dash" },
+      { "ingredientId": "ice", "unit": "as needed" }
+    ],
+    "instructions": [
+      "Pour the whiskey, sweet vermouth and bitters into a mixing glass filled with ice.",
+      "Stir for about 30 seconds, until well chilled.",
+      "Strain into a chilled cocktail glass."
+    ]
+  },
+  {
+    "id": "dry-martini",
+    "name": "Dry Martini",
+    "image": "assets/images/cocktails/dry-martini.jpg",
+    "method": "stir",
+    "ingredients": [
+      { "ingredientId": "gin", "amount": 60, "unit": "ml" },
+      { "ingredientId": "dry-vermouth", "amount": 10, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" },
+      { "ingredientId": "lemon", "amount": 1, "unit": "twist", "optional": true }
+    ],
+    "instructions": [
+      "Pour the gin and dry vermouth into a mixing glass filled with ice.",
+      "Stir for about 30 seconds, until well chilled.",
+      "Strain into a chilled cocktail glass.",
+      "Garnish with a lemon twist."
+    ]
+  },
+  {
+    "id": "vodka-martini",
+    "name": "Vodka Martini",
+    "image": "assets/images/cocktails/vodka-martini.jpg",
+    "method": "stir",
+    "ingredients": [
+      { "ingredientId": "vodka", "amount": 60, "unit": "ml" },
+      { "ingredientId": "dry-vermouth", "amount": 10, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" },
+      { "ingredientId": "lemon", "amount": 1, "unit": "twist", "optional": true }
+    ],
+    "instructions": [
+      "Pour the vodka and dry vermouth into a mixing glass filled with ice.",
+      "Stir for about 30 seconds, until well chilled.",
+      "Strain into a chilled cocktail glass.",
+      "Garnish with a lemon twist."
+    ]
+  },
+  {
+    "id": "daiquiri",
+    "name": "Daiquiri",
+    "image": "assets/images/cocktails/daiquiri.jpg",
+    "method": "shake",
+    "ingredients": [
+      { "ingredientId": "rum", "amount": 45, "unit": "ml" },
+      { "ingredientId": "lime", "amount": 25, "unit": "ml" },
+      { "ingredientId": "simple-syrup", "amount": 15, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" }
+    ],
+    "instructions": [
+      "Pour all ingredients into a shaker filled with ice.",
+      "Shake hard for about 15 seconds.",
+      "Strain into a chilled cocktail glass."
+    ]
+  },
+  {
+    "id": "margarita",
+    "name": "Margarita",
+    "image": "assets/images/cocktails/margarita.jpg",
+    "method": "shake",
+    "ingredients": [
+      { "ingredientId": "tequila", "amount": 50, "unit": "ml" },
+      { "ingredientId": "orange-liqueur", "amount": 20, "unit": "ml" },
+      { "ingredientId": "lime", "amount": 15, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" }
+    ],
+    "instructions": [
+      "Pour all ingredients into a shaker filled with ice.",
+      "Shake hard for about 15 seconds.",
+      "Strain into a chilled cocktail glass."
+    ]
+  },
+  {
+    "id": "whiskey-sour",
+    "name": "Whiskey Sour",
+    "image": "assets/images/cocktails/whiskey-sour.jpg",
+    "method": "shake",
+    "ingredients": [
+      { "ingredientId": "whiskey", "amount": 45, "unit": "ml" },
+      { "ingredientId": "lemon", "amount": 25, "unit": "ml" },
+      { "ingredientId": "simple-syrup", "amount": 20, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" }
+    ],
+    "instructions": [
+      "Pour all ingredients into a shaker filled with ice.",
+      "Shake hard for about 15 seconds.",
+      "Strain into an old-fashioned glass over fresh ice."
+    ]
+  },
+  {
+    "id": "cosmopolitan",
+    "name": "Cosmopolitan",
+    "image": "assets/images/cocktails/cosmopolitan.jpg",
+    "method": "shake",
+    "ingredients": [
+      { "ingredientId": "vodka", "amount": 40, "unit": "ml" },
+      { "ingredientId": "orange-liqueur", "amount": 15, "unit": "ml" },
+      { "ingredientId": "cranberry-juice", "amount": 30, "unit": "ml" },
+      { "ingredientId": "lime", "amount": 15, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" }
+    ],
+    "instructions": [
+      "Pour all ingredients into a shaker filled with ice.",
+      "Shake hard for about 15 seconds.",
+      "Strain into a chilled cocktail glass."
+    ]
+  },
+  {
+    "id": "mojito",
+    "name": "Mojito",
+    "image": "assets/images/cocktails/mojito.jpg",
+    "method": "build",
+    "ingredients": [
+      { "ingredientId": "rum", "amount": 40, "unit": "ml" },
+      { "ingredientId": "lime", "amount": 30, "unit": "ml" },
+      { "ingredientId": "mint", "amount": 6, "unit": "leaf" },
+      { "ingredientId": "sugar", "amount": 2, "unit": "tsp" },
+      { "ingredientId": "soda-water", "unit": "top up" },
+      { "ingredientId": "ice", "unit": "as needed" }
+    ],
+    "instructions": [
+      "Put the mint leaves, sugar and lime juice in a tall glass and muddle gently.",
+      "Add the rum and fill the glass with ice.",
+      "Top up with soda water.",
+      "Stir gently."
+    ]
+  },
+  {
+    "id": "moscow-mule",
+    "name": "Moscow Mule",
+    "image": "assets/images/cocktails/moscow-mule.jpg",
+    "method": "build",
+    "ingredients": [
+      { "ingredientId": "vodka", "amount": 45, "unit": "ml" },
+      { "ingredientId": "lime", "amount": 15, "unit": "ml" },
+      { "ingredientId": "ginger-beer", "amount": 120, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" }
+    ],
+    "instructions": [
+      "Fill a mug or highball glass with ice.",
+      "Pour in the vodka and lime juice.",
+      "Top up with ginger beer and stir gently."
+    ]
+  },
+  {
+    "id": "gin-fizz",
+    "name": "Gin Fizz",
+    "image": "assets/images/cocktails/gin-fizz.jpg",
+    "method": "shake",
+    "ingredients": [
+      { "ingredientId": "gin", "amount": 45, "unit": "ml" },
+      { "ingredientId": "lemon", "amount": 30, "unit": "ml" },
+      { "ingredientId": "simple-syrup", "amount": 10, "unit": "ml" },
+      { "ingredientId": "soda-water", "unit": "top up" },
+      { "ingredientId": "ice", "unit": "as needed" }
+    ],
+    "instructions": [
+      "Pour the gin, lemon juice and simple syrup into a shaker filled with ice.",
+      "Shake hard for about 15 seconds.",
+      "Strain into a highball glass.",
+      "Top up with soda water."
+    ]
+  },
+  {
+    "id": "john-collins",
+    "name": "John Collins",
+    "image": "assets/images/cocktails/john-collins.jpg",
+    "method": "build",
+    "ingredients": [
+      { "ingredientId": "gin", "amount": 45, "unit": "ml" },
+      { "ingredientId": "lemon", "amount": 30, "unit": "ml" },
+      { "ingredientId": "simple-syrup", "amount": 15, "unit": "ml" },
+      { "ingredientId": "soda-water", "amount": 60, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" }
+    ],
+    "instructions": [
+      "Fill a highball glass with ice.",
+      "Pour in the gin, lemon juice and simple syrup.",
+      "Top up with soda water and stir gently."
+    ]
+  },
+  {
+    "id": "dark-n-stormy",
+    "name": "Dark 'n' Stormy",
+    "image": "assets/images/cocktails/dark-n-stormy.jpg",
+    "method": "build",
+    "ingredients": [
+      { "ingredientId": "rum", "amount": 60, "unit": "ml" },
+      { "ingredientId": "lime", "amount": 10, "unit": "ml" },
+      { "ingredientId": "ginger-beer", "amount": 100, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" }
+    ],
+    "instructions": [
+      "Fill a highball glass with ice.",
+      "Pour in the ginger beer and the lime juice.",
+      "Slowly pour the dark rum over the top so that it floats."
+    ]
+  },
+  {
+    "id": "cuba-libre",
+    "name": "Cuba Libre",
+    "image": "assets/images/cocktails/cuba-libre.jpg",
+    "method": "build",
+    "ingredients": [
+      { "ingredientId": "rum", "amount": 50, "unit": "ml" },
+      { "ingredientId": "cola", "amount": 120, "unit": "ml" },
+      { "ingredientId": "lime", "amount": 10, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" }
+    ],
+    "instructions": [
+      "Fill a highball glass with ice.",
+      "Pour in the rum and lime juice.",
+      "Top up with cola and stir gently."
+    ]
+  },
+  {
+    "id": "screwdriver",
+    "name": "Screwdriver",
+    "image": "assets/images/cocktails/screwdriver.jpg",
+    "method": "build",
+    "ingredients": [
+      { "ingredientId": "vodka", "amount": 50, "unit": "ml" },
+      { "ingredientId": "orange", "amount": 100, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" }
+    ],
+    "instructions": [
+      "Fill a highball glass with ice.",
+      "Pour in the vodka and orange juice.",
+      "Stir gently."
+    ]
+  },
+  {
+    "id": "sea-breeze",
+    "name": "Sea Breeze",
+    "image": "assets/images/cocktails/sea-breeze.jpg",
+    "method": "build",
+    "ingredients": [
+      { "ingredientId": "vodka", "amount": 40, "unit": "ml" },
+      { "ingredientId": "cranberry-juice", "amount": 120, "unit": "ml" },
+      { "ingredientId": "grapefruit", "amount": 30, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" }
+    ],
+    "instructions": [
+      "Fill a highball glass with ice.",
+      "Pour in the vodka, cranberry juice and grapefruit juice.",
+      "Stir gently."
+    ]
+  },
+  {
+    "id": "black-russian",
+    "name": "Black Russian",
+    "image": "assets/images/cocktails/black-russian.jpg",
+    "method": "build",
+    "ingredients": [
+      { "ingredientId": "vodka", "amount": 50, "unit": "ml" },
+      { "ingredientId": "coffee-liqueur", "amount": 20, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" }
+    ],
+    "instructions": [
+      "Fill an old-fashioned glass with ice.",
+      "Pour in the vodka and coffee liqueur.",
+      "Stir gently."
+    ]
+  },
+  {
+    "id": "white-russian",
+    "name": "White Russian",
+    "image": "assets/images/cocktails/white-russian.jpg",
+    "method": "build",
+    "ingredients": [
+      { "ingredientId": "vodka", "amount": 50, "unit": "ml" },
+      { "ingredientId": "coffee-liqueur", "amount": 20, "unit": "ml" },
+      { "ingredientId": "cream", "amount": 30, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" }
+    ],
+    "instructions": [
+      "Fill an old-fashioned glass with ice.",
+      "Pour in the vodka and coffee liqueur.",
+      "Slowly pour the cream over the top so that it floats.",
+      "Stir gently before drinking."
+    ]
+  },
+  {
+    "id": "tequila-sunrise",
+    "name": "Tequila Sunrise",
+    "image": "assets/images/cocktails/tequila-sunrise.jpg",
+    "method": "build",
+    "ingredients": [
+      { "ingredientId": "tequila", "amount": 45, "unit": "ml" },
+      { "ingredientId": "orange", "amount": 90, "unit": "ml" },
+      { "ingredientId": "grenadine", "amount": 15, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" }
+    ],
+    "instructions": [
+      "Fill a highball glass with ice.",
+      "Pour in the tequila and orange juice and stir gently.",
+      "Slowly pour the grenadine down the side of the glass so that it sinks to the bottom."
+    ]
+  },
+  {
+    "id": "americano",
+    "name": "Americano",
+    "image": "assets/images/cocktails/americano.jpg",
+    "method": "build",
+    "ingredients": [
+      { "ingredientId": "campari", "amount": 30, "unit": "ml" },
+      { "ingredientId": "sweet-vermouth", "amount": 30, "unit": "ml" },
+      { "ingredientId": "soda-water", "unit": "top up" },
+      { "ingredientId": "ice", "unit": "as needed" },
+      { "ingredientId": "orange", "amount": 1, "unit": "slice", "optional": true }
+    ],
+    "instructions": [
+      "Fill an old-fashioned glass with ice.",
+      "Pour in the Campari and sweet vermouth.",
+      "Top up with a splash of soda water and stir gently.",
+      "Garnish with an orange slice."
+    ]
+  },
+  {
+    "id": "aperol-spritz",
+    "name": "Aperol Spritz",
+    "image": "assets/images/cocktails/aperol-spritz.jpg",
+    "method": "build",
+    "ingredients": [
+      { "ingredientId": "sparkling-wine", "amount": 60, "unit": "ml" },
+      { "ingredientId": "aperol", "amount": 40, "unit": "ml" },
+      { "ingredientId": "soda-water", "amount": 20, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" },
+      { "ingredientId": "orange", "amount": 1, "unit": "slice", "optional": true }
+    ],
+    "instructions": [
+      "Fill a wine glass with ice.",
+      "Pour in the sparkling wine, then the Aperol, then the soda water.",
+      "Stir gently and garnish with an orange slice."
+    ]
+  },
+  {
+    "id": "mimosa",
+    "name": "Mimosa",
+    "image": "assets/images/cocktails/mimosa.jpg",
+    "method": "build",
+    "ingredients": [
+      { "ingredientId": "sparkling-wine", "amount": 75, "unit": "ml" },
+      { "ingredientId": "orange", "amount": 75, "unit": "ml" }
+    ],
+    "instructions": [
+      "Pour the sparkling wine into a chilled champagne flute.",
+      "Add the orange juice.",
+      "Stir very gently."
+    ]
+  },
+  {
+    "id": "french-75",
+    "name": "French 75",
+    "image": "assets/images/cocktails/french-75.jpg",
+    "method": "shake",
+    "ingredients": [
+      { "ingredientId": "gin", "amount": 30, "unit": "ml" },
+      { "ingredientId": "lemon", "amount": 15, "unit": "ml" },
+      { "ingredientId": "simple-syrup", "amount": 10, "unit": "ml" },
+      { "ingredientId": "sparkling-wine", "amount": 60, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" }
+    ],
+    "instructions": [
+      "Pour the gin, lemon juice and simple syrup into a shaker filled with ice.",
+      "Shake hard for about 15 seconds.",
+      "Strain into a champagne flute.",
+      "Top up with the sparkling wine."
+    ]
+  },
+  {
+    "id": "sidecar",
+    "name": "Sidecar",
+    "image": "assets/images/cocktails/sidecar.jpg",
+    "method": "shake",
+    "ingredients": [
+      { "ingredientId": "brandy", "amount": 50, "unit": "ml" },
+      { "ingredientId": "orange-liqueur", "amount": 20, "unit": "ml" },
+      { "ingredientId": "lemon", "amount": 20, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" }
+    ],
+    "instructions": [
+      "Pour all ingredients into a shaker filled with ice.",
+      "Shake hard for about 15 seconds.",
+      "Strain into a chilled cocktail glass."
+    ]
+  },
+  {
+    "id": "white-lady",
+    "name": "White Lady",
+    "image": "assets/images/cocktails/white-lady.jpg",
+    "method": "shake",
+    "ingredients": [
+      { "ingredientId": "gin", "amount": 40, "unit": "ml" },
+      { "ingredientId": "orange-liqueur", "amount": 30, "unit": "ml" },
+      { "ingredientId": "lemon", "amount": 20, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" }
+    ],
+    "instructions": [
+      "Pour all ingredients into a shaker filled with ice.",
+      "Shake hard for about 15 seconds.",
+      "Strain into a chilled cocktail glass."
+    ]
+  },
+  {
+    "id": "boulevardier",
+    "name": "Boulevardier",
+    "image": "assets/images/cocktails/boulevardier.jpg",
+    "method": "stir",
+    "ingredients": [
+      { "ingredientId": "whiskey", "amount": 45, "unit": "ml" },
+      { "ingredientId": "campari", "amount": 30, "unit": "ml" },
+      { "ingredientId": "sweet-vermouth", "amount": 30, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" },
+      { "ingredientId": "orange", "amount": 1, "unit": "slice", "optional": true }
+    ],
+    "instructions": [
+      "Pour the whiskey, Campari and sweet vermouth into a mixing glass filled with ice.",
+      "Stir for about 30 seconds, until well chilled.",
+      "Strain into a chilled cocktail glass.",
+      "Garnish with an orange slice."
+    ]
+  },
+  {
+    "id": "pina-colada",
+    "name": "Piña Colada",
+    "image": "assets/images/cocktails/pina-colada.jpg",
+    "method": "blend",
+    "ingredients": [
+      { "ingredientId": "rum", "amount": 50, "unit": "ml" },
+      { "ingredientId": "coconut-cream", "amount": 30, "unit": "ml" },
+      { "ingredientId": "pineapple-juice", "amount": 30, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" }
+    ],
+    "instructions": [
+      "Put all ingredients and a cup of crushed ice in a blender.",
+      "Blend until smooth.",
+      "Pour into a tall glass."
+    ]
+  },
+  {
+    "id": "long-island-iced-tea",
+    "name": "Long Island Iced Tea",
+    "image": "assets/images/cocktails/long-island-iced-tea.jpg",
+    "method": "build",
+    "ingredients": [
+      { "ingredientId": "vodka", "amount": 15, "unit": "ml" },
+      { "ingredientId": "tequila", "amount": 15, "unit": "ml" },
+      { "ingredientId": "rum", "amount": 15, "unit": "ml" },
+      { "ingredientId": "gin", "amount": 15, "unit": "ml" },
+      { "ingredientId": "orange-liqueur", "amount": 15, "unit": "ml" },
+      { "ingredientId": "lemon", "amount": 25, "unit": "ml" },
+      { "ingredientId": "simple-syrup", "amount": 30, "unit": "ml" },
+      { "ingredientId": "cola", "unit": "top up" },
+      { "ingredientId": "ice", "unit": "as needed" }
+    ],
+    "instructions": [
+      "Fill a highball glass with ice.",
+      "Pour in the vodka, tequila, rum, gin, orange liqueur, lemon juice and simple syrup.",
+      "Top up with cola and stir gently."
+    ]
+  },
+  {
+    "id": "caipirinha",
+    "name": "Caipirinha",
+    "image": "assets/images/cocktails/caipirinha.jpg",
+    "method": "build",
+    "ingredients": [
+      { "ingredientId": "cachaca", "amount": 50, "unit": "ml" },
+      { "ingredientId": "lime", "amount": 4, "unit": "wedge" },
+      { "ingredientId": "sugar", "amount": 4, "unit": "tsp" },
+      { "ingredientId": "ice", "unit": "as needed" }
+    ],
+    "instructions": [
+      "Put the lime wedges and sugar in an old-fashioned glass.",
+      "Muddle gently so that the lime releases its juice.",
+      "Fill the glass with crushed ice and add the cachaça.",
+      "Stir gently."
+    ]
+  },
+  {
+    "id": "gin-and-tonic",
+    "name": "Gin and Tonic",
+    "image": "assets/images/cocktails/gin-and-tonic.jpg",
+    "method": "build",
+    "ingredients": [
+      { "ingredientId": "gin", "amount": 50, "unit": "ml" },
+      { "ingredientId": "tonic-water", "amount": 150, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" },
+      { "ingredientId": "lime", "amount": 1, "unit": "wedge", "optional": true }
+    ],
+    "instructions": [
+      "Fill a highball glass with ice.",
+      "Pour in the gin.",
+      "Top up with tonic water and stir gently.",
+      "Garnish with a lime wedge."
+    ]
+  },
+  {
+    "id": "espresso-martini",
+    "name": "Espresso Martini",
+    "image": "assets/images/cocktails/espresso-martini.jpg",
+    "method": "shake",
+    "ingredients": [
+      { "ingredientId": "vodka", "amount": 50, "unit": "ml" },
+      { "ingredientId": "coffee-liqueur", "amount": 10, "unit": "ml" },
+      { "ingredientId": "simple-syrup", "amount": 10, "unit": "ml" },
+      { "ingredientId": "espresso", "amount": 30, "unit": "ml" },
+      { "ingredientId": "ice", "unit": "as needed" }
+    ],
+    "instructions": [
+      "Pour all ingredients into a shaker filled with ice.",
+      "Shake hard for about 15 seconds, so that the drink gets a foamy top.",
+      "Strain into a chilled cocktail glass."
+    ]
+  }
+]
